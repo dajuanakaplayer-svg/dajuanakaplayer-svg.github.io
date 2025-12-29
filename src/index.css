@@ -1,0 +1,486 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Minecraft block color palette */
+  --primary: oklch(0.55 0.18 145); /* Grass green */
+  --primary-foreground: oklch(0.98 0.01 145); /* White text */
+  --sidebar-primary: oklch(0.5 0.16 140);
+  --sidebar-primary-foreground: oklch(0.98 0.01 145);
+  --chart-1: oklch(0.55 0.18 145); /* Grass green */
+  --chart-2: oklch(0.45 0.05 60); /* Stone gray */
+  --chart-3: oklch(0.5 0.12 65); /* Dirt brown */
+  --chart-4: oklch(0.6 0.2 250); /* Diamond blue */
+  --chart-5: oklch(0.65 0.15 30); /* Gold */
+  --radius: 0rem; /* Square blocks, no rounding */
+  --background: oklch(0.88 0.02 220); /* Light sky blue */
+  --foreground: oklch(0.2 0.01 60); /* Dark gray */
+  --card: oklch(0.95 0.01 145); /* Light block */
+  --card-foreground: oklch(0.2 0.01 60);
+  --popover: oklch(0.95 0.01 145);
+  --popover-foreground: oklch(0.2 0.01 60);
+  --secondary: oklch(0.45 0.05 60); /* Stone gray */
+  --secondary-foreground: oklch(0.98 0.01 60);
+  --muted: oklch(0.75 0.02 145);
+  --muted-foreground: oklch(0.4 0.02 60);
+  --accent: oklch(0.6 0.2 250); /* Diamond blue */
+  --accent-foreground: oklch(0.98 0.01 250);
+  --destructive: oklch(0.55 0.22 25); /* Redstone red */
+  --destructive-foreground: oklch(0.98 0.01 25);
+  --border: oklch(0.4 0.03 60); /* Dark stone */
+  --input: oklch(0.95 0.01 145);
+  --ring: oklch(0.55 0.18 145);
+  --sidebar: oklch(0.5 0.12 65); /* Dirt brown */
+  --sidebar-foreground: oklch(0.98 0.01 65);
+  --sidebar-accent: oklch(0.55 0.18 145);
+  --sidebar-accent-foreground: oklch(0.98 0.01 145);
+  --sidebar-border: oklch(0.4 0.03 60);
+  --sidebar-ring: oklch(0.55 0.18 145);
+}
+
+.dark {
+  /* Mac Miller Faces Theme - Dark, Moody, Introspective */
+  --primary: oklch(0.55 0.05 140); /* Muted sage green #6B7F6A */
+  --primary-foreground: oklch(0.95 0.01 140); /* Light text on sage */
+  --sidebar-primary: oklch(0.50 0.05 140);
+  --sidebar-primary-foreground: oklch(0.92 0.01 140);
+  --background: oklch(0.10 0.005 280); /* Near-black #0A0A0B */
+  --foreground: oklch(0.90 0.01 50); /* Warm off-white #E8E6E3 */
+  --card: oklch(0.14 0.005 280); /* Dark charcoal #151517 */
+  --card-foreground: oklch(0.90 0.01 50);
+  --popover: oklch(0.16 0.005 280); /* Elevated surface #1C1C1F */
+  --popover-foreground: oklch(0.90 0.01 50);
+  --secondary: oklch(0.30 0.08 300); /* Dark purple #3D2F4A */
+  --secondary-foreground: oklch(0.90 0.01 300);
+  --muted: oklch(0.20 0.005 280);
+  --muted-foreground: oklch(0.55 0.01 50); /* Medium gray #8B8985 */
+  --accent: oklch(0.70 0.08 50); /* Warm amber #D4A574 */
+  --accent-foreground: oklch(0.15 0.01 50);
+  --destructive: oklch(0.55 0.22 25); /* Keep redstone red */
+  --destructive-foreground: oklch(0.98 0.01 25);
+  --border: oklch(0.20 0.01 280); /* Subtle borders */
+  --input: oklch(0.18 0.005 280);
+  --ring: oklch(0.55 0.05 140); /* Sage green ring */
+  --chart-1: oklch(0.55 0.05 140); /* Sage green */
+  --chart-2: oklch(0.30 0.08 300); /* Dark purple */
+  --chart-3: oklch(0.70 0.08 50); /* Amber */
+  --chart-4: oklch(0.45 0.06 250); /* Muted blue */
+  --chart-5: oklch(0.50 0.06 140); /* Forest green */
+  --sidebar: oklch(0.14 0.005 280);
+  --sidebar-foreground: oklch(0.90 0.01 50);
+  --sidebar-accent: oklch(0.18 0.005 280);
+  --sidebar-accent-foreground: oklch(0.90 0.01 50);
+  --sidebar-border: oklch(0.20 0.01 280);
+  --sidebar-ring: oklch(0.55 0.05 140);
+  --radius: 0.75rem; /* 12px - Modern rounded corners */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Minecraft font styling */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
+  body {
+    font-family: 'Minecraft', 'Press Start 2P', monospace;
+  }
+  
+  /* 3D Minecraft block text effect */
+  .minecraft-text {
+    position: relative;
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 
+      2px 2px 0px rgba(0, 0, 0, 0.3),
+      4px 4px 0px rgba(0, 0, 0, 0.2),
+      6px 6px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+  
+  .minecraft-text:hover {
+    transform: translateY(-4px) scale(1.05);
+    text-shadow: 
+      3px 3px 0px rgba(0, 0, 0, 0.3),
+      6px 6px 0px rgba(0, 0, 0, 0.2),
+      9px 9px 0px rgba(0, 0, 0, 0.1),
+      0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Grass block style text */
+  .grass-text {
+    background: linear-gradient(180deg, #7cbd56 0%, #5a9c3f 50%, #8b6f47 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.4));
+  }
+  
+  /* Stone block style text */
+  .stone-text {
+    background: linear-gradient(135deg, #7a7a7a 0%, #5a5a5a 50%, #4a4a4a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+  }
+  
+  /* Diamond block style text */
+  .diamond-text {
+    background: linear-gradient(135deg, #5decf5 0%, #33c9d6 50%, #1fa3b0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 10px rgba(93, 236, 245, 0.5));
+  }
+  
+  /* Gold block style text */
+  .gold-text {
+    background: linear-gradient(135deg, #fcee4b 0%, #f4d03f 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 15px rgba(252, 238, 75, 0.6));
+  }
+  
+  /* Sage green gradient text (subtle weed theme) */
+  .weed-text {
+    background: linear-gradient(135deg, #6B7F6A 0%, #4A5A49 50%, #87A96B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 8px rgba(107, 127, 106, 0.4));
+  }
+  
+  /* Faces purple gradient */
+  .faces-text {
+    background: linear-gradient(135deg, #3D2F4A 0%, #5A4566 50%, #2A1F35 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(61, 47, 74, 0.5));
+  }
+  
+  /* Amber glow gradient */
+  .amber-text {
+    background: linear-gradient(135deg, #D4A574 0%, #B8895E 50%, #E8C9A0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 12px rgba(212, 165, 116, 0.6));
+  }
+  
+  /* Pixelated image rendering for Minecraft-style images */
+  .pixelated {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+/* Glassmorphism utility classes */
+.glass {
+  background: rgba(28, 28, 31, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(28, 28, 31, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Modern shadow depths */
+.shadow-subtle {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-high {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-smooth-slow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Gradient overlays */
+.gradient-dark {
+  background: linear-gradient(135deg, #0A0A0B 0%, #151517 100%);
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #3D2F4A 0%, #1C1C1F 100%);
+}
+
+.gradient-sage {
+  background: linear-gradient(135deg, #6B7F6A 0%, #4A5A49 100%);
+}
+
+/* Breathing room spacing */
+.space-comfortable {
+  padding: 1.5rem;
+}
+
+.space-spacious {
+  padding: 2rem;
+}
+/* Minecraft Building Animation */
+.minecraft-build-hover {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.minecraft-build-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(139, 195, 74, 0.3) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.minecraft-build-hover:hover::before {
+  transform: translateX(100%);
+  animation: build-sweep 0.6s ease;
+}
+
+.minecraft-build-hover:hover {
+  text-shadow: 
+    0 0 10px rgba(107, 127, 106, 0.6),
+    0 0 20px rgba(107, 127, 106, 0.4),
+    0 0 30px rgba(107, 127, 106, 0.2),
+    2px 2px 0 rgba(0, 0, 0, 0.4);
+  transform: scale(1.08) translateY(-4px);
+  filter: brightness(1.3) drop-shadow(0 8px 16px rgba(107, 127, 106, 0.3));
+}
+
+@keyframes build-sweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Glow effect for sage green theme */
+.shadow-glow {
+  box-shadow: 0 4px 16px rgba(107, 127, 106, 0.3);
+}
+
+.shadow-glow:hover {
+  box-shadow: 0 8px 24px rgba(107, 127, 106, 0.5);
+}
+
+/* Redstone Power Animation */
+.redstone-lit {
+  color: #FF4444 !important;
+  text-shadow: 
+    0 0 8px rgba(255, 68, 68, 0.8),
+    0 0 12px rgba(255, 68, 68, 0.6),
+    0 0 16px rgba(255, 68, 68, 0.4),
+    0 0 20px rgba(255, 0, 0, 0.3);
+  filter: brightness(1.5);
+  font-weight: 600;
+}
+
+.redstone-off {
+  color: rgb(var(--muted-foreground));
+  text-shadow: none;
+  filter: brightness(1);
+}
+
+/* Redstone pulse animation for extra effect */
+@keyframes redstone-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 8px rgba(255, 68, 68, 0.8),
+      0 0 12px rgba(255, 68, 68, 0.6);
+  }
+  50% {
+    text-shadow: 
+      0 0 12px rgba(255, 68, 68, 1),
+      0 0 16px rgba(255, 68, 68, 0.8),
+      0 0 20px rgba(255, 68, 68, 0.6);
+  }
+}
+
+.redstone-lit {
+  animation: redstone-pulse 1.5s ease-in-out infinite;
+}
